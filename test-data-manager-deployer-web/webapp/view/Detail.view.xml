@@ -1,0 +1,52 @@
+<m:View xmlns="sap.uxap" xmlns:core="sap.ui.core" xmlns:m="sap.m"
+	xmlns:layout="sap.ui.layout" displayBlock="true"
+	controllerName="ux.fnd.test.data.manager.deployer.controller.Detail"
+	height="100%">
+	<ObjectPageLayout id="ObjectPageLayout"
+		showTitleInHeaderContent="false" showFooter="true">
+		<headerTitle>
+			<ObjectPageHeader id="headerForTest" headerDesign=""
+				objectTitle="{geminiheader>/objName}">
+				<actions>
+					<ObjectPageHeaderActionButton
+						icon="sap-icon://full-screen" press="handleFullScreen"
+						tooltip="Enter Full Screen Mode"
+						visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"></ObjectPageHeaderActionButton>
+					<ObjectPageHeaderActionButton
+						icon="sap-icon://exit-full-screen" press="handleExitFullScreen"
+						tooltip="Exit Full Screen Mode"
+						visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"></ObjectPageHeaderActionButton>
+					<ObjectPageHeaderActionButton
+						icon="sap-icon://decline" press="handleClose"
+						tooltip="Close column"
+						visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"></ObjectPageHeaderActionButton>
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+			<ObjectPageSection title="Status">
+				<subSections>
+					<ObjectPageSubSection title="Status">
+						<m:Label text="Status" />
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="Data">
+				<subSections>
+					<ObjectPageSubSection title="Product Data">
+						<m:Table id="idAPITable" inset="false"
+							itemPress="handleMasterPress" mode="MultiSelect">
+							<m:headerToolbar></m:headerToolbar>
+						</m:Table>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer />
+				<m:Button text="Deploy" press="onPress" />
+			</m:OverflowToolbar>
+		</footer>
+	</ObjectPageLayout>
+</m:View>

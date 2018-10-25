@@ -1,0 +1,42 @@
+<core:View displayBlock="true" height="100%" xmlns="sap.m"
+	xmlns:f="sap.f" xmlns:core="sap.ui.core">
+	<f:DynamicPage toggleHeaderOnTitleClick="false">
+		<f:content>
+			<Table inset="false" items="{geminiModel>/I_SBRCloudQuality}"
+				class="sapFDynamicPageAlignContent" width="auto" growing="true"
+				growingScrollToLoad="true" busyIndicatorDelay="0"
+				growingThreshold="100" mode="SingleSelectMaster"
+				selectionChange="ux.fnd.test.data.manager.repository.util.ViewRouteHandler.toTestDataObjectAPI">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer />
+						<SearchField width="30%" />
+						<OverflowToolbarButton icon="sap-icon://add"
+							text="Add" type="Transparent" />
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Object" />
+					</Column>
+					<Column>
+						<Text text="Area" demandPopin="true" minScreenWidth="Small" />
+					</Column>
+					<Column>
+						<Text text="Application Component" demandPopin="true"
+							minScreenWidth="Small" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation">
+						<cells>
+							<Text text="{geminiModel>ObjectName}" />
+							<Text text="{geminiModel>Area}" />
+							<Text text="{geminiModel>ApplicationComponent}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</core:View>

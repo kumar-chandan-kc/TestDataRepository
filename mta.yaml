@@ -1,0 +1,146 @@
+ID: test-data-manager
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: test-data-manager-onprem-connectivity
+    type: java
+    path: test-data-manager-onprem-connectivity
+    parameters:
+      buildpack: sap_java_buildpack
+      memory: 512M
+      host: test-data-manager-onprem-connectivity
+    properties:
+      JAVA_OPTS: '-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000'
+      JBP_CONFIG_JAVA_OPTS: '[from_environment: false, java_opts: ''-XX:+ForceDebuggingOnDemand'']'      
+    provides:
+      - name: test-data-manager-onprem-connectivity-api
+        properties:
+          test-data-manager-onprem-connectivity-url: '${default-url}'        
+    requires:
+      - name: test-data-manager-uaa
+      - name: test-data-manager-connectivity
+      - name: test-data-manager-github-connectivity-api
+        properties:
+          github_endpoint: '~{test-data-manager-github-connectivity-url}'
+      
+  - name: test-data-manager-github-connectivity
+    type: java
+    path: test-data-manager-github-connectivity
+    parameters:
+      buildpack: sap_java_buildpack
+      memory: 512M
+      host: test-data-manager-github-connectivity
+    properties:
+      JAVA_OPTS: '-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000'
+      JBP_CONFIG_JAVA_OPTS: '[from_environment: false, java_opts: ''-XX:+ForceDebuggingOnDemand'']'
+    provides:
+      - name: test-data-manager-github-connectivity-api
+        properties:
+          test-data-manager-github-connectivity-url: '${default-url}'        
+    requires:
+      - name: test-data-manager-uaa
+      - name: test-data-manager-connectivity
+      
+  - name: test-data-manager-repository-web
+    type: javascript.nodejs
+    path: test-data-manager-repository-web
+    parameters:
+      host: test-data-manager-repository-web
+      memory: 128M
+    provides:
+      - name: test-data-manager-repository-web-api
+        properties:
+         test-data-manager-repository-web-url: '${default-url}'
+    requires:
+      - name: test-data-manager-uaa  
+      
+  - name: test-data-manager-deployer-web
+    type: javascript.nodejs
+    path: test-data-manager-deployer-web
+    parameters:
+      host: test-data-manager-deployer-web
+      memory: 128M
+    provides:
+      - name: test-data-manager-deployer-web-api
+        properties:
+         test-data-manager-deployer-web-url: '${default-url}'
+    requires:
+      - name: test-data-manager-uaa
+      
+  - name: test-data-manager-browser-web
+    type: javascript.nodejs
+    path: test-data-manager-browser-web
+    parameters:
+      host: test-data-manager-browser-web
+      memory: 128M
+    provides:
+      - name: test-data-manager-browser-web-api
+        properties:
+         test-data-manager-browser-web-url: '${default-url}'
+    requires:
+      - name: test-data-manager-uaa  
+      
+  - name: test-data-manager-approuter
+    type: javascript.nodejs
+    path: test-data-manager-approuter
+    parameters:
+      host: test-data-manager-approuter
+      memory: 128M
+    requires:
+      - name: test-data-manager-uaa
+      - name: test-data-manager-onprem-connectivity-api
+        group: destinations
+        properties:
+          name: test-data-manager-onprem-connectivity-api-destination
+          url: '~{test-data-manager-onprem-connectivity-url}'
+          forwardAuthToken: true
+      - name: test-data-manager-github-connectivity-api
+        group: destinations
+        properties:
+          name: test-data-manager-github-connectivity-api-destination
+          url: '~{test-data-manager-github-connectivity-url}'
+          forwardAuthToken: true
+      - name: test-data-manager-repository-web-api
+        group: destinations
+        properties:
+          name: test-data-manager-repository-web-api-destination
+          url: '~{test-data-manager-repository-web-url}'
+          forwardAuthToken: true
+      - name: test-data-manager-deployer-web-api
+        group: destinations
+        properties:
+          name: test-data-manager-deployer-web-api-destination
+          url: '~{test-data-manager-deployer-web-url}'
+          forwardAuthToken: true
+      - name: test-data-manager-browser-web-api
+        group: destinations
+        properties:
+          name: test-data-manager-browser-web-api-destination
+          url: '~{test-data-manager-browser-web-url}'
+          forwardAuthToken: true
+      - name: test-data-manager-ui5
+        group: destinations
+        properties:
+          name: ui5-destination
+          url: '~{ui5-url}'
+          forwardAuthToken: true  
+           
+resources:
+  - name: test-data-manager-uaa
+    type: com.sap.xs.uaa
+    parameters:
+      service-plan: application
+      config:
+        xsappname: test-data-manager
+        tenant-mode: dedicated
+        
+  - name: test-data-manager-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+      
+  - name: test-data-manager-ui5
+    properties:
+      ui5-url: 'https://sapui5.hana.ondemand.com'
+  

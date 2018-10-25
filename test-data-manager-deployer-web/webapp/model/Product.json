@@ -1,0 +1,105 @@
+{
+	"Product": "NEWPRODUCT",
+	"ProductType": "FERT",
+	"CrossPlantStatus": "81",
+	"CrossPlantStatusValidityDate": null,
+	"CreationDate": "\/Date(1504569600000)\/",
+	"CreatedByUser": "MUDDAM",
+	"LastChangeDate": null,
+	"LastChangedByUser": "",
+	"LastChangeDateTime": "\/Date(1504569600000+0000)\/",
+	"IsMarkedForDeletion": false,
+	"ProductOldID": "",
+	"GrossWeight": "0.000",
+	"PurchaseOrderQuantityUnit": "",
+	"SourceOfSupply": "",
+	"WeightUnit": "",
+	"NetWeight": "0.000",
+	"CountryOfOrigin": "",
+	"CompetitorID": "",
+	"ProductGroup": "",
+	"BaseUnit": "EA",
+	"ItemCategoryGroup": "NORM",
+	"ProductHierarchy": "",
+	"Division": "",
+	"VarblPurOrdUnitIsActive": "",
+	"VolumeUnit": "",
+	"MaterialVolume": "0.000",
+	"ANPCode": "0",
+	"Brand": "",
+	"ProcurementRule": "",
+	"ValidityStartDate": null,
+	"LowLevelCode": "",
+	"ProdNoInGenProdInPrepackProd": "",
+	"SerialIdentifierAssgmtProfile": "",
+	"SizeOrDimensionText": "",
+	"IndustryStandardName": "",
+	"ProductStandardID": "",
+	"InternationalArticleNumberCat": "",
+	"ProductIsConfigurable": false,
+	"IsBatchManagementRequired": false,
+	"ExternalProductGroup": "",
+	"CrossPlantConfigurableProduct": "",
+	"SerialNoExplicitnessLevel": "",
+	"ProductManufacturerNumber": "",
+	"ManufacturerNumber": "",
+	"ManufacturerPartProfile": "",
+	"ChangeNumber": "",
+	"MaterialRevisionLevel": "",
+	"HandlingIndicator": "",
+	"WarehouseProductGroup": "",
+	"WarehouseStorageCondition": "",
+	"StandardHandlingUnitType": "",
+	"SerialNumberProfile": "",
+	"AdjustmentProfile": "",
+	"PreferredUnitOfMeasure": "",
+	"IsPilferable": false,
+	"IsRelevantForHzdsSubstances": false,
+	"QuarantinePeriod": "0",
+	"TimeUnitForQuarantinePeriod": "",
+	"QualityInspectionGroup": "",
+	"AuthorizationGroup": "",
+	"HandlingUnitType": "",
+	"HasVariableTareWeight": false,
+	"MaximumPackagingLength": "0.000",
+	"MaximumPackagingWidth": "0.000",
+	"MaximumPackagingHeight": "0.000",
+	"to_Description": {
+		"Product": "NEWPRODUCT",
+		"Language": "EN",
+		"ProductDescription": "New product for TDM"
+	},
+	"to_Plant": {
+
+	},
+	"to_ProductBasicText": {
+
+	},
+	"to_ProductInspectionText": {
+
+	},
+	"to_ProductProcurement": {
+
+	},
+	"to_ProductPurchaseText": {
+
+	},
+	"to_ProductQualityMgmt": {
+
+	},
+	"to_ProductSales": {
+
+	},
+	"to_ProductSalesTax": {
+
+	},
+	"to_ProductStorage": {
+
+	},
+	"to_ProductUnitsOfMeasure": {
+
+	},
+	"to_SalesDelivery": {
+
+	}
+}

@@ -1,0 +1,93 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "${project.artifactId}",
+		"type": "application",
+		"applicationVersion": {
+			"version": "${project.version}"
+		},
+		"dataSources": {
+			"geminiDataSource": {
+				"uri": "/onprem/uyt/sap/opu/odata/sap/CA_BUSINESS_REPOSITORY_SRV",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui5": {
+		"models": {
+			"geminiModel": {
+				"dataSource": "geminiDataSource",
+				"preload": true,
+				"settings": {
+					"serviceUrlParams": {
+						"sap-client": "928"
+					},
+					"metadataUrlParams": {
+						"sap-client": "928"
+					},
+					"defaultCountMode": "InlineRepeat"
+				}
+			}
+		},
+		"rootView": {
+			"viewName": "ux.fnd.test.data.manager.repository.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "fcl"
+		},
+		"dependencies": {
+			"minUI5Version": "1.56.0",
+			"libs": {
+				"sap.f": {
+					
+				}
+			}
+		},
+		"config": {
+			"fullWidth": false
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ux.fnd.test.data.manager.repository.view",
+				"controlId": "flexibleColumnLayout",
+				"transition": "slide",
+				"bypassed": {
+					
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "testdataobjects",
+					"target": [
+						"testdataobjects"
+					]
+				},
+				{
+					"pattern": "api/{testDataObject}",
+					"name": "testdataobjectapis",
+					"target": [
+						"testdataobjects",
+						"testdataobjectapis"
+					]
+				}
+			],
+			"targets": {
+				"testdataobjects": {
+					"viewName": "TestDataObjects",
+					"controlAggregation": "beginColumnPages"
+				},
+				"testdataobjectapis": {
+					"viewName": "TestDataObjectAPIs",
+					"controlAggregation": "midColumnPages"
+				}
+			}
+		}
+	}
+}

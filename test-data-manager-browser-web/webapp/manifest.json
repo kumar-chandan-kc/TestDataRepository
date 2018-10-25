@@ -1,0 +1,184 @@
+{
+	"_version": "1.4.0",
+	"sap.app": {
+		"id": "${project.artifactId}",
+		"type": "application",
+		"resources": "resources.json",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "${project.version}"
+		},
+		"ach": "",
+		"dataSources": {
+			"mainService": {
+				"uri": "/onprem/uyt/sap/opu/odata/sap/ZGEMINI_BO_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"geminiDataSource": {
+				"uri": "/onprem/uyt/sap/opu/odata/sap/CA_BUSINESS_REPOSITORY_SRV",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.42.0"
+		}
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ux.fnd.test.data.manager.browser.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "${sap.ui5.dist.version}",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.42.0"
+				},
+				"sap.m": {
+					"minVersion": "1.42.0"
+				},
+				"sap.f": {
+					"minVersion": "1.46"
+				},
+				"sap.ushell": {
+					"minVersion": "1.42.0"
+				},
+				"sap.collaboration": {
+					"minVersion": "1.42",
+					"lazy": true
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ux.fnd.test.data.manager.browser.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"serviceUrlParams": {
+						"sap-client": "928"
+					},
+					"metadataUrlParams": {
+						"sap-client": "928"
+					},
+					"defaultCountMode": "InlineRepeat"
+				}
+			},
+			"geminiModel": {
+				"dataSource": "geminiDataSource",
+				"preload": true,
+				"settings": {
+					"serviceUrlParams": {
+						"sap-client": "928"
+					},
+					"metadataUrlParams": {
+						"sap-client": "928"
+					},
+					"defaultCountMode": "InlineRepeat"
+				}
+			}
+
+		},
+		"config": {
+			"fullWidth": true
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ux.fnd.test.data.manager.browser.view",
+				"controlId": "fcl",
+				"transition": "slide",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": ":layout:",
+					"name": "master",
+					"target": [
+						"master",
+						"detailEmpty"
+					]
+				},
+				{
+					"pattern": "detail/{layout},{SOT}",
+					"name": "detail",
+					"target": [
+						"master",
+						"detail"
+					]
+				},
+				{
+					"pattern": "detailDetail/{layout},{Value},{facet}",
+					"name": "detailDetail",
+					"target": [
+						"master",
+						"detail",
+						"detailDetail"
+					]
+				}
+			],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"controlAggregation": "beginColumnPages"
+				},
+				"detail": {
+					"viewName": "Detail",
+					"controlAggregation": "midColumnPages"
+				},
+				"detailDetail": {
+					"viewName": "DetailDetail",
+					"controlAggregation": "endColumnPages"
+				},
+				"detailEmpty": {
+					"viewName": "DetailEmpty",
+					"controlAggregation": "midColumnPages"
+				}
+			}
+		}
+	}
+}

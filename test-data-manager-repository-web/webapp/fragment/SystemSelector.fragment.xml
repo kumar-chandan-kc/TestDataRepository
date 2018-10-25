@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<ComboBox width="100%" placeholder="Select System..."
+		selectedKey="{sessionModel>/systemSpecific/selectedSystemCode}"
+		items="{testRepoGenericModel>/availableSystems}"
+		selectionChange="ux.fnd.test.data.manager.repository.util.SystemSelector.resetSessionForNewSystem">
+		<core:Item key="{testRepoGenericModel>systemCode}"
+			text="{testRepoGenericModel>systemText}" />
+		<layoutData>
+			<l:GridData span="XL4 L4 M4 S12" />
+		</layoutData>
+	</ComboBox>
+	<Input
+		value="{sessionModel>/systemSpecific/selectedSystemClient}"
+		placeholder="Enter client..."
+		change="ux.fnd.test.data.manager.repository.util.SystemSelector.resetSessionForNewSystemClient">
+		<layoutData>
+			<l:GridData span="XL4 L4 M4 S12" />
+		</layoutData>
+	</Input>
+</core:FragmentDefinition>

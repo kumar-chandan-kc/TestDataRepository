@@ -1,0 +1,6 @@
+<View xmlns="sap.f" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	height="100%">
+	<FlexibleColumnLayout id="flexibleColumnLayout"
+		backgroundDesign="Solid"
+		layout="{testRepoGenericModel>/uiState/flexibleColumnLayout}" />
+</View>

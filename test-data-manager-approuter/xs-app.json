@@ -1,0 +1,47 @@
+{
+	"welcomeFile": "/repository/index.html",
+	"authenticationMethod": "route",
+	"routes": [
+		{
+			"source": "^/sap/ui5/1(.*)$",
+			"target": "$1",
+			"destination": "ui5-destination",
+			"csrfProtection": false
+		},
+		{
+			"source": "^/onprem/(.*)$",
+			"target": "$1",
+			"destination": "test-data-manager-onprem-connectivity-api-destination",
+			"authenticationType": "xsuaa",
+			"csrfProtection": false
+		},
+		{
+			"source": "^/github/(.*)$",
+			"target": "$1",
+			"destination": "test-data-manager-github-connectivity-api-destination",
+			"authenticationType": "xsuaa",
+			"csrfProtection": false
+		},
+		{
+			"source": "^/repository/(.*)$",
+			"target": "$1",
+			"destination": "test-data-manager-repository-web-api-destination",
+			"authenticationType": "xsuaa",
+			"csrfProtection": true
+		},
+		{
+			"source": "^/deployer/(.*)$",
+			"target": "$1",
+			"destination": "test-data-manager-deployer-web-api-destination",
+			"authenticationType": "xsuaa",
+			"csrfProtection": true
+		},
+		{
+			"source": "^/browser/(.*)$",
+			"target": "$1",
+			"destination": "test-data-manager-browser-web-api-destination",
+			"authenticationType": "xsuaa",
+			"csrfProtection": true
+		}
+	]
+}

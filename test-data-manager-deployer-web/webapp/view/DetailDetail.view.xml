@@ -1,0 +1,65 @@
+<m:View xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" displayBlock="true"
+	controllerName="ux.fnd.test.data.manager.deployer.controller.DetailDetail" height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false">
+		<headerTitle>
+			<ObjectPageHeader id="headerForTest" headerDesign="" objectTitle="{geminiheader>/facet}">
+				<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode"
+						visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"></ObjectPageHeaderActionButton>
+					<ObjectPageHeaderActionButton icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode"
+						visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"></ObjectPageHeaderActionButton>
+					<ObjectPageHeaderActionButton icon="sap-icon://decline" press="handleClose" tooltip="Close column"
+						visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"></ObjectPageHeaderActionButton>
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:Label text="{geminiheader>/value}" design="Bold"/>
+			</layout:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection title="Details" style="Bold">
+				<subSections>
+					<ObjectPageSubSection title="Technical Detail">
+						<!--<m:Label text="{DemoDetailDetailGemini>/name}"/>-->
+						<!--<m:Label text="{geminiheader>/technicalDetails}"/>-->
+						<!--<m:TextArea value="{geminiheader>/technicalDetails}" editable = "false" height = "100%" width = "100%" growing="true"/>-->
+						<m:FormattedText htmlText="{geminiheader>/technicalDetails}"></m:FormattedText>
+						<!--					<m:Tree-->
+						<!--    id="Tree"-->
+						<!--    items="{path: '{geminiheader>/technicalDetails}'}">-->
+						<!--<StandardTreeItem title="{text}"/>-->
+						<!--</m:Tree>-->
+					</ObjectPageSubSection>
+					<!--<ObjectPageSubSection title="Description">-->
+					<!--	<layout:VerticalLayout>-->
+					<!--		<m:Label text="{DemoDetailDetailGemini>/l_des}" wrapping="true"/>-->
+					<!--		<m:Label width="10px"/>-->
+					<!--		<layout:HorizontalLayout>-->
+					<!--<m:Link text="Navigate" href="{DemoDetailDetailGemini>/link}"/>-->
+					<!--<m:Label width="05px"/>-->
+					<!--<core:Icon src="sap-icon://locate-me" class="size1">-->
+					<!--<core:layoutData>-->
+					<!--<m:FlexItemData growFactor="1"/>-->
+					<!--</core:layoutData>-->
+					<!--</core:Icon>-->
+					<!--		</layout:HorizontalLayout>-->
+					<!--	</layout:VerticalLayout>-->
+					<!--</ObjectPageSubSection>-->
+					<!--<ObjectPageSubSection title="Link">-->
+					<!--        <m:Link text="{DemoDetailDetailGemini>/link}" href="{DemoDetailDetailGemini>/link}"/>-->
+					<!--<m:Button text="Navigate" icon="sap-icon://edit" press="onButtonPress"/>-->
+					<!--</ObjectPageSubSection>-->
+				</subSections>
+			</ObjectPageSection>
+			<!--         <ObjectPageSection title="Link">-->
+			<!--        <subSections>-->
+			<!--                        <ObjectPageSubSection title="Link">-->
+			<!--                        <m:Label text="{DemoDetailDetailGemini>/value}"/>-->
+			<!--                        </ObjectPageSubSection>-->
+			<!--        </subSections>-->
+			<!--</ObjectPageSection>-->
+		</sections>
+	</ObjectPageLayout>
+</m:View>

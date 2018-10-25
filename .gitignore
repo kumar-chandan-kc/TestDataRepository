@@ -1,0 +1,12 @@
+.settings
+.mta
+.externalToolBuilders
+target
+/test-data-manager-approuter/.settings
+/test-data-manager-approuter/target
+/test-data-manager-onprem-connectivity/.settings
+/test-data-manager-onprem-connectivity/target
+/test-data-manager-repository-web/.settings
+/test-data-manager-repository-web/target
+/test-data-manager-repository-web/node_modules
+/test-data-manager-email-connectivity/target

@@ -1,0 +1,41 @@
+<core:View displayBlock="true" height="100%" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.f"
+	controllerName="ux.fnd.test.data.manager.repository.controller.TestDataObjectAPIs">
+	<f:DynamicPage toggleHeaderOnTitleClick="false">
+		<f:content>
+			<VBox fitContainer="true">
+				<Panel width="auto" class="sapUiResponsiveMargin">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Available APIs" />
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						<List id="testDataObjectAPIs" inset="false"
+							class="sapFDynamicPageAlignContent" width="auto" growing="true"
+							growingScrollToLoad="true" busyIndicatorDelay="0"
+							growingThreshold="100" mode="SingleSelectLeft"
+							selectionChange="ux.fnd.test.data.manager.repository.util.APISelector.showAvailableVersionsForTestDataObjectAPI" />
+					</content>
+				</Panel>
+				<Panel width="auto" class="sapUiResponsiveMargin"
+					visible="{= ${sessionModel>/selectedTestDataObjectAPI} ? true : false }">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Available Release Versions" />
+							<ToolbarSpacer />
+							<OverflowToolbarButton
+								icon="sap-icon://add" text="Add" type="Transparent"
+								press="ux.fnd.test.data.manager.repository.util.APIDataFetcher.triggerDataFetch" />
+						</OverflowToolbar>
+					</headerToolbar>
+					<content>
+						<List inset="false" class="sapFDynamicPageAlignContent"
+							width="auto" growing="true" growingScrollToLoad="true"
+							busyIndicatorDelay="0" growingThreshold="100" />
+					</content>
+				</Panel>
+			</VBox>
+		</f:content>
+	</f:DynamicPage>
+</core:View>

@@ -1,0 +1,9 @@
+{
+	"name": "test-data-manager-deployer-web",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"express": "4.16.3"
+	}
+}

@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	<SelectDialog confirm="fnOnSelectReleaseVH" items="{ path: 'systemModel>/releases', sorter: {path: 'releaseID'} }">
+		<StandardListItem title="{systemModel>releaseID}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

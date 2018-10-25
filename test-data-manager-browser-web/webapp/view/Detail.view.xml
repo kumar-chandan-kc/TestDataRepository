@@ -1,0 +1,159 @@
+<m:View xmlns="sap.uxap" xmlns:core="sap.ui.core" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" displayBlock="true"
+	controllerName="ux.fnd.test.data.manager.browser.controller.Detail" height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false">
+		<headerTitle>
+			<ObjectPageHeader id="headerForTest" headerDesign="" objectTitle="{geminiheader>/objName}">
+				<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode"></ObjectPageHeaderActionButton>
+					<ObjectPageHeaderActionButton icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode"></ObjectPageHeaderActionButton>
+					<ObjectPageHeaderActionButton icon="sap-icon://decline" press="handleClose" tooltip="Close column"></ObjectPageHeaderActionButton>
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<!--<layout:VerticalLayout> -->
+			<!-- <m:Label text="CQ Plannings"/> -->
+			<!--</layout:VerticalLayout> -->
+		</headerContent>
+		<sections>
+			<ObjectPageSection title="Data">
+				<subSections>
+					<ObjectPageSubSection title="Release">
+						<m:Select id="release" items="{ path: 'geminidetails>/release', templateShareable:false}">
+							<core:Item key="{geminidetails>value}" text="{geminidetails>value}"/>
+						</m:Select>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection>
+						<m:Table id="idAPITable" inset="false" itemPress="handleMasterPress">
+							<m:headerToolbar>
+								<m:Toolbar>
+									<m:ToolbarSpacer/>
+									<m:SearchField id="searchField" tooltip="Enter ObjectName, Area.. to search" search="onSearch" width="auto" liveChange="onSearch"></m:SearchField>
+								</m:Toolbar>
+							</m:headerToolbar>
+							<!--<m:headerToolbar></m:headerToolbar> -->
+							<!--<m:columns> -->
+							<!-- <m:Column width="12em"> -->
+							<!-- <m:Label text="ProductId" design="Bold"/> -->
+							<!-- </m:Column> -->
+							<!-- <m:Column width="12em"> -->
+							<!-- <m:Label text="Volume" design="Bold"/> -->
+							<!-- </m:Column> -->
+							<!-- <m:Column width="12em"> -->
+							<!-- <m:Label text="ScopeItem" design="Bold"/> -->
+							<!-- </m:Column> -->
+							<!-- <m:Column width="12em"> -->
+							<!-- <m:Label text="Source" design="Bold"/> -->
+							<!-- </m:Column> -->
+							<!--</m:columns> -->
+							<!--<m:items> -->
+							<!-- <m:ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress"> -->
+							<!-- <m:cells> -->
+							<!-- <m:Text text="{geminidetails>value}"/> -->
+							<!-- </m:cells> -->
+							<!-- <m:cells> -->
+							<!-- <m:Text text="{geminidetails>ScopeItems}"/> -->
+							<!-- </m:cells> -->
+							<!-- <m:cells> -->
+							<!-- <m:Text text="{geminidetails>Volume}"/> -->
+							<!-- </m:cells> -->
+							<!-- <m:cells> -->
+							<!-- <m:Text text="{geminidetails>_source}"/> -->
+							<!-- </m:cells> -->
+							<!-- </m:ColumnListItem> -->
+							<!--</m:items> -->
+						</m:Table>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<!--<ObjectPageSection title="Extensibility"> -->
+			<!-- <subSections> -->
+			<!-- <ObjectPageSubSection title="Extensibility"> -->
+			<!-- <m:Table id="idExtTable" inset="false" items="{ path: 'geminidetails>/bc',sorter: 
+				{ path: 'value' }}"> -->
+			<!-- <m:headerToolbar></m:headerToolbar> -->
+			<!-- <m:columns> -->
+			<!-- <m:Column width="12em"> -->
+			<!-- <m:Label text="Business Contexts" design="Bold"/> -->
+			<!-- </m:Column> -->
+			<!-- </m:columns> -->
+			<!-- <m:items> -->
+			<!-- <m:ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress"> -->
+			<!-- <m:cells> -->
+			<!-- <m:Text text="{geminidetails>value}"/> -->
+			<!-- </m:cells> -->
+			<!-- </m:ColumnListItem> -->
+			<!-- </m:items> -->
+			<!-- </m:Table> -->
+			<!-- </ObjectPageSubSection> -->
+			<!-- </subSections> -->
+			<!--</ObjectPageSection> -->
+			<!--<ObjectPageSection title="Apps"> -->
+			<!-- <subSections> -->
+			<!-- <ObjectPageSubSection title="Apps"> -->
+			<!-- <m:Table id="idAppsTable" inset="false" items="{ path: 'geminidetails>/app',sorter: 
+				{ path: 'value' }}"> -->
+			<!-- <m:headerToolbar></m:headerToolbar> -->
+			<!-- <m:columns> -->
+			<!-- <m:Column width="12em"> -->
+			<!-- <m:Label text="APP Name" design="Bold"/> -->
+			<!-- </m:Column> -->
+			<!-- </m:columns> -->
+			<!-- <m:items> -->
+			<!-- <m:ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress"> -->
+			<!-- <m:cells> -->
+			<!-- <m:Text text="{geminidetails>value}"/> -->
+			<!-- </m:cells> -->
+			<!-- </m:ColumnListItem> -->
+			<!-- </m:items> -->
+			<!-- </m:Table> -->
+			<!-- </ObjectPageSubSection> -->
+			<!-- </subSections> -->
+			<!--</ObjectPageSection> -->
+			<!--<ObjectPageSection title="CDS"> -->
+			<!-- <subSections> -->
+			<!-- <ObjectPageSubSection title="CDS"> -->
+			<!-- <m:Table id="idCDSTable" inset="false" items="{ path: 'geminidetails>/cds',sorter: 
+				{ path: 'value' }}"> -->
+			<!-- <m:headerToolbar></m:headerToolbar> -->
+			<!-- <m:columns> -->
+			<!-- <m:Column width="12em"> -->
+			<!-- <m:Label text="CDS Name" design="Bold"/> -->
+			<!-- </m:Column> -->
+			<!-- </m:columns> -->
+			<!-- <m:items> -->
+			<!-- <m:ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress"> -->
+			<!-- <m:cells> -->
+			<!-- <m:Text text="{geminidetails>value}"/> -->
+			<!-- </m:cells> -->
+			<!-- </m:ColumnListItem> -->
+			<!-- </m:items> -->
+			<!-- </m:Table> -->
+			<!-- </ObjectPageSubSection> -->
+			<!-- </subSections> -->
+			<!--</ObjectPageSection> -->
+			<!--<ObjectPageSection title="Events"> -->
+			<!-- <subSections> -->
+			<!-- <ObjectPageSubSection title="Events"> -->
+			<!-- <m:Table id="idEventsTable" inset="false" items="{ path: 'geminidetails>/events',sorter: 
+				{ path: 'value' }}"> -->
+			<!-- <m:headerToolbar></m:headerToolbar> -->
+			<!-- <m:columns> -->
+			<!-- <m:Column width="12em"> -->
+			<!-- <m:Label text="Event" design="Bold"/> -->
+			<!-- </m:Column> -->
+			<!-- </m:columns> -->
+			<!-- <m:items> -->
+			<!-- <m:ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress"> -->
+			<!-- <m:cells> -->
+			<!-- <m:Text text="{geminidetails>value}"/> -->
+			<!-- </m:cells> -->
+			<!-- </m:ColumnListItem> -->
+			<!-- </m:items> -->
+			<!-- </m:Table> -->
+			<!-- </ObjectPageSubSection> -->
+			<!-- </subSections> -->
+			<!--</ObjectPageSection> -->
+		</sections>
+	</ObjectPageLayout>
+</m:View>
